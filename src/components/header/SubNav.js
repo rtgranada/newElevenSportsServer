@@ -7,7 +7,7 @@ import { NavDashboard } from './NavDashboard'
 
 export default function SubNav() {
   const { currentUser, logout } = useAuth()
-  console.log('subNave ', currentUser)
+
   const history = useHistory()
 
   // console.log('history', history)

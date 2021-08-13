@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute'
 import ForgotPassword from '../profile/ForgotPassword'
 import UpdateProfile from '../profile/UpdateProfile'
 import Schedule from '../schedule/Schedule'
+import Records from '../records/Records'
 
 const Routes = () => (
   <Switch>
@@ -15,6 +16,7 @@ const Routes = () => (
     <PrivateRoute exact path="/profile" component={Profile} />
     <PrivateRoute path="/update-profile" component={UpdateProfile} />
     <PrivateRoute path="/agenda" component={Schedule} />
+    <PrivateRoute path="/cadastros" component={Records} />
     <Route path="/signup" component={Signup} />
     <Route path="/login" component={Login} />
     <Route path="/forgot-password" component={ForgotPassword} />

@@ -4,6 +4,7 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import { setUser, logoutSair } from '../services/user'
 import { useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const AuthContext = React.createContext()
 
@@ -18,6 +19,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   const signup = async (newUser) => {
+    console.log('signup', newUser)
     let todo = `${newUser.firstName} ${newUser.lastName}`
     const { password, ...newDataUser } = newUser
     console.log('newDataUser', newDataUser)
@@ -76,12 +78,15 @@ export function AuthProvider({ children }) {
           let bdUser = documentSnapshot.data()
           if (bdUser.type !== 'user') {
             setCurrentUser({ bdUser, ...user })
+            toast.success('Login realizado com sucesso')
             history.push('/profile')
           } else {
+            toast.error('Você não tem permissão')
             await logout()
             history.push('/login')
           }
         } catch {
+          toast.error('Falha ao tentar entrar')
           console.log('Algo errado')
         }
       }

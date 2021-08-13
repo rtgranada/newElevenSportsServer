@@ -1,5 +1,7 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 import { AuthProvider } from '../contexts/AuthContext'
 import { ThemeProvider } from 'styled-components'
 import usePersistedState from './utils/usePersistedState'
@@ -21,6 +23,7 @@ function App() {
       <div className="App">
         <Router>
           <AuthProvider>
+            <ToastContainer />
             <GlobalStyle />
             <Nav toggleTheme={toggleTheme} />
             <Routes />

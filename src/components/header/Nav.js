@@ -15,21 +15,17 @@ import { faMoon as rMoon } from '@fortawesome/free-regular-svg-icons'
 
 const Nav = (props) => {
   const [error, setError] = useState('')
-  const [userState, setUserState] = useState(null)
+
   const [userName, setUserName] = useState('')
   const { currentUser, logout } = useAuth()
   const { title } = useContext(ThemeContext)
   const history = useHistory()
 
-  console.log('Nav', currentUser)
-
   useEffect(() => {
     if (currentUser) {
-      setUserState(currentUser.uid)
       setUserName(currentUser.bdUser.firstName)
     }
     if (!currentUser) {
-      setUserState(null)
       setUserName('')
     }
   }, [currentUser])
@@ -46,7 +42,7 @@ const Nav = (props) => {
   }
 
   let buttons
-  if (userState != null) {
+  if (currentUser != null) {
     buttons = (
       <React.Fragment>
         <li>
