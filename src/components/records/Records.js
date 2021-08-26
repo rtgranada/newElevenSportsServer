@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Container, Card } from 'react-bootstrap'
 import { LoadingBall } from '../style/loadingBall'
 import Signup from '../auth/Signup'
+import Signup2 from '../auth/Signup2'
 
 export default function Records() {
   const [error, setError] = useState('')
@@ -10,11 +11,11 @@ export default function Records() {
 
   let body
 
-  useEffect(() => {
-    setTimer(true)
+  // useEffect(() => {
+  //   setTimer(true)
 
-    setTimeout(() => setTimer(false), 3000)
-  }, [])
+  //   setTimeout(() => setTimer(false), 3000)
+  // }, [])
 
   if (timer) {
     body = (
@@ -34,7 +35,7 @@ export default function Records() {
         <Card>
           <Card.Body>
             <h2 className="text-center mb-4 teste-profile">Usuario</h2>
-            <Signup />
+            <Signup2 />
           </Card.Body>
         </Card>
         <Card>

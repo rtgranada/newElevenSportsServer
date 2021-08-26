@@ -29,11 +29,11 @@ export default function Profile() {
     }
   }
 
-  useEffect(() => {
-    setTimer(true)
+  // useEffect(() => {
+  //   setTimer(true)
 
-    setTimeout(() => setTimer(false), 3000)
-  }, [])
+  //   setTimeout(() => setTimer(false), 3000)
+  // }, [])
 
   if (timer) {
     novoteste = (

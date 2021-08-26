@@ -6,6 +6,7 @@ import {
   InputAdornment,
   IconButton,
 } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 
 import VisibilityIcon from '@material-ui/icons/Visibility'
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
@@ -18,6 +19,7 @@ import { loginSchema } from '../schemas/auth'
 import { LoginStyledForm } from '../style/forms/loginForm'
 
 export default function Login() {
+  const history = useHistory()
   const emailRef = useRef()
   const passwordRef = useRef()
   const { login } = useAuth()
@@ -37,7 +39,8 @@ export default function Login() {
 
   const onSubmit = async ({ email, password }) => {
     try {
-      await login(email, password)
+      await login(email, password).then(history.push('/profile'))
+      console.log('cheguei aqui')
     } catch (error) {
       toast.error('Usuário ou senha inválidos')
       console.log(error)
